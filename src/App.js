@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import User from './User';
+import Products from './Products';
+import { Route, Routes } from 'react-router-dom';
+import TodoApp from './Todo/TodoApp';
+import Navbar from './Navbar';
+import Product from './Product';
+import Mobiles from './Mobiles';
+import Mobile from './Mobile';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Routes>
+        <Route path='/first' element={<Products/>}></Route>
+        <Route path='/product/:productname' element={<Product/>}></Route>
+        <Route path='/user' element={<User/>}></Route>
+        <Route path='/Todo' element={<TodoApp/>}></Route>
+        <Route path='/mobile/:mobileName' element={<Mobile/>}></Route>
+        <Route path='/mobiles' element={<Mobiles/>}></Route>
+      </Routes>
+
     </div>
   );
 }
